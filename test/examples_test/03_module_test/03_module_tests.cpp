@@ -5,3 +5,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
+TEST_CASE("Test if a number is even")
+{
+	REQUIRE(is_even(4) == true);
+}

@@ -12,3 +12,4 @@ Write int value-return function convert_double_to_int with a double parameter
 /*
 Write int value-return function static_cast_double_int with a double parameter
 */
+

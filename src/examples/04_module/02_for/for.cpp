@@ -14,4 +14,25 @@ RESULT:
 5
 
 */
+void display_numbers(int num)
+{
+    for(int i=0; i < num; i++)
+    {
+        std::cout<<i+1<<"\n"; //void functions used mostly to display something or to write to files or send infor to computer ports
+        //can't test void functions since they don't returna value
+    }
+}
 
+
+void nested_loop(int num)
+{
+    for(int i=0; i< num; i++)
+    {
+        std::cout<<i<<"\n";
+        for(int j=0; j < num ;j++)
+        {
+            std::cout<<j;
+        }
+        std::cout<<"\n";
+    }
+}
