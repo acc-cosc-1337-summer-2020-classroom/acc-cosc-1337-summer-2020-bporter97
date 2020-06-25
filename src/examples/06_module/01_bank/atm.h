@@ -3,19 +3,21 @@
 #include "bank_account.h"
 #ifndef ATM_H
 #define ATM_H
+#include<vector>
 
 class ATM
 {
 public:
-    ATM(BankAccount& a) : account{a}{}
+    ATM(){}
     void run();
 private:
+    void scan_card();
     void display_menu();//helper functions..utility functions
     void set_choice();
     void handle_transaction();
-    BankAccount& account;//our user-defined class--composition
+    int selected_account_index;
     int choice;
-
+    std::vector<BankAccount> accounts{BankAccount(100), BankAccount(200), BankAccount(300)};
 };
 
 #endif

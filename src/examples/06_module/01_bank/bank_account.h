@@ -2,9 +2,26 @@
 #include<vector>
 #include <iostream>
 
+#ifndef BRANCH_BANK_H
+#define BRANCH_BANK_H
 
-enum transaction{ DEPOSIT=1, WITHDRAW=2, DEPOSIT=3};
+class BranchBank
+{
+public:
+    BranchBank(int b) : branch_balance{b}{BankAccount::balance}
+    void update_balance(int b);
+    int get_branch_balance()const{return branch_balance;}
+private:
+    int branch_balance;
+};
 
+#endif
+
+#ifndef BANK_ACCOUNT_H//header guards
+#define BANK_ACCOUNT_H
+
+enum transaction{ DEPOSIT=1, WITHDRAW=2, DISPLAY=3};
+enum class OPTION{DEPOSIT=1, WITHDRAW=2, DISPLAY=3, EXIT=4};//c++11 
 
 class BankAccount
 {
@@ -15,19 +32,11 @@ public:
     void deposit(int amount);
     void withdraw(int amount);
     static int get_bank_balance(){return bank_balance;}
+    friend void BranchBank::update_balance(int b);
 private:
     int balance; //lock this variable
     static int bank_balance;
 
 };
 
-BankAccount& get_account(int i); //free function
-
-void display_menu();
-void handle_transaction(BankAccount& account, int choice)
-{
-    switch 
-    {
-
-    }
-}
+#endif
