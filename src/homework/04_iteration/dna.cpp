@@ -30,9 +30,9 @@ std::string get_reverse_string(std::string dna)
 {
     std::string rev;
 
-    for(int i = dna.size() -1; i >= 0; i--)
+    for(int i = dna.size(); i > 0; i--)
     {
-        rev = rev.append(1, dna[i]);
+        rev = rev.append(1, dna[i-1]);
     }
 
 
@@ -56,15 +56,15 @@ std::string get_dna_complement(std::string dna)
 
     for(int i = 0; i<dna.length(); i++)
     {
-        if(dna[i] == 'A')
+        if(dna_reverse_complement[i] == 'A')
         {
             dna_reverse_complement[i] = 'T';
         }
-        else if(dna[i] == 'T')
+        else if(dna_reverse_complement[i] == 'T')
         {
             dna_reverse_complement[i] = 'A';
         }
-        else if(dna[i] == 'G')
+        else if(dna_reverse_complement[i] == 'G')
         {
             dna_reverse_complement[i] = 'C';
         }
