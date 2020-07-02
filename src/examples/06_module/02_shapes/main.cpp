@@ -11,8 +11,14 @@ Create vector of Shape pointers
 iterate with auto
 */
 
+using std::unique_ptr; using std::make_unique;
+
 int main() 
 {
+	unique_ptr<Shape> shape = make_unique<Shape>();
+	unique_ptr<Shape> line = make_unique<Line>();
+	shape->draw();
+	line->draw();
 
 	return 0;
 }

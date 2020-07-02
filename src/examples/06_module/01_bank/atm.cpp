@@ -70,3 +70,14 @@ void ATM::handle_transaction()
     }
 
 }
+
+void display_account(const std::unique_ptr<BankAccount>& account)
+{
+    std::cout<<*account<<"\n";
+
+}
+
+void display_account_val(std::unique_ptr<BankAccount> account)
+{
+    
+}

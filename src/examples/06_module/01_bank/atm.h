@@ -4,6 +4,7 @@
 #ifndef ATM_H
 #define ATM_H
 #include<vector>
+#include<iostream>
 
 class ATM
 {
@@ -21,3 +22,6 @@ private:
 };
 
 #endif
+
+void display_account(std::unique_ptr<BankAccount>& account);
+void display_account_val(std::unique_ptr<BankAccount> account);
