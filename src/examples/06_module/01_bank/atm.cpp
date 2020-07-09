@@ -3,10 +3,22 @@
 
 using std::cout;    using std::cin;
 
+ATM::ATM()
+{
+    customers.push_back(Customer("John Doe"));
+    customers.push_back(Customer("Mary Doe"));
+    customers.push_back(Customer("Jr Doe"));
+}
+
 void ATM::scan_card()
 {
-    cout<<"Welcome to ACC community bank\n";
-    cout<<"Scan card: \n";
+    selected_customer_index = rand() % 3 + 1;
+    Customer& customer = customers[selected_customer_index-1];
+
+    cout<<"Welcome "<<customer.get_name()<<" to ACC community bank\n";
+    cout<<"Select Account: \n";
+    cout<<"1-Checking \n";
+    cout<<"2-Savings\n";
     cin>>selected_account_index;
 }
 
@@ -51,18 +63,20 @@ void ATM::set_choice()
 
 void ATM::handle_transaction()
 {
-    accounts[selected_account_index].set_option(static_cast<OPTION>(choice));
+    Customer& customer = customers[selected_customer_index-1];
+    std::unique_ptr<BankAccount>& account = customer.get_account(selected_account_index);
+    account->set_option(static_cast<OPTION>(choice));
 
     switch (static_cast<OPTION>(choice))
     {
     case OPTION::DEPOSIT:
-        cin>>accounts[selected_account_index];
+        cin>>*account;
         break;
     case OPTION::WITHDRAW:
-        cin>>accounts[selected_account_index];
+        cin>>*account;
         break;
     case OPTION::DISPLAY:
-        cout<<accounts[selected_account_index];
+        cout<<*account;
         break;
     default:
         cout<<"Exiting...";
@@ -71,13 +85,25 @@ void ATM::handle_transaction()
 
 }
 
-void display_account(const std::unique_ptr<BankAccount>& account)
+void display_account(std::unique_ptr<BankAccount>& account)
 {
     std::cout<<*account<<"\n";
-
 }
 
 void display_account_val(std::unique_ptr<BankAccount> account)
 {
-    
+    std::cout<<*account<<"\n";
+}
+
+std::unique_ptr<BankAccount> get_account()
+{
+    std::unique_ptr<BankAccount> a = std::make_unique<SavingsAccount>(1000);
+
+    return a;
+}
+
+void use_account()
+{
+    std::unique_ptr<BankAccount> a = std::make_unique<CheckingAccount>(1000);
+    cout<<*a;
 }
