@@ -3,6 +3,6 @@
 
 int main() 
 {
-	
+	int* valid_ptr = get_init_pointer()
 	return 0;
 }
