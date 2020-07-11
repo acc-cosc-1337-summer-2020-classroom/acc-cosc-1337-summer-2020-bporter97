@@ -164,6 +164,8 @@ void TicTacToe::clear_board()
     {
         return true;
     }
+
+    return false;
  }
 
  void TicTacToe::set_winner()
