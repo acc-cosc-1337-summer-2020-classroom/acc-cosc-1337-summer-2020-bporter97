@@ -10,10 +10,10 @@ private:
   double base_pay;
   double bonus;
 
-pubic:
-  Engineer(double bsPay, double bns){}
+public:
+  Engineer(double bsPay, double bns);
   double get_pay() const;
-
+  ~Engineer(){}
 
 };
 #endif

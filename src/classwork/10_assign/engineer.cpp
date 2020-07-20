@@ -1,7 +1,7 @@
 //cpp
 #include "engineer.h"
 
-Engineer(double bsPay, double bns)
+Engineer::Engineer(double bsPay, double bns)
 {
   base_pay = bsPay;
   bonus = bns;

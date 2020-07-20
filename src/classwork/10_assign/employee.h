@@ -13,6 +13,7 @@ private:
 
 public:
   virtual double get_pay() const = 0;
+  virtual ~Employee(){}
 };
 
 #endif
